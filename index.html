@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>AWS Cloud Practitioner - Guía Interactiva</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="AWS Study">
+    <meta name="description" content="Guía interactiva para estudiar AWS Cloud Practitioner CLF-C02">
+    
+    <!-- PWA Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iOCIgZmlsbD0iIzY2N2VlYSIvPgo8dGV4dCB4PSI1IiB5PSIyMiIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSI+QVc8L3RleHQ+Cjwvc3ZnPgo=">
+    <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE4MCAxODAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxODAiIGhlaWdodD0iMTgwIiByeD0iNDAiIGZpbGw9IiM2NjdlZWEiLz4KPHN2ZyB4PSI0MCIgeT0iNDAiIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9IndoaXRlIj4KPHA+Q2xvdWQ8L3A+CjwvdGV4dD4KPC9zdmc+Cg==">
+    
+    <!-- Manifest -->
+    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIkFXUyBDbG91ZCBQcmFjdGl0aW9uZXIgU3R1ZHkiLAogICJzaG9ydF9uYW1lIjogIkFXUyBTdHVkeSIsCiAgImRlc2NyaXB0aW9uIjogIkd1w61hIGludGVyYWN0aXZhIHBhcmEgZXN0dWRpYXIgQVdTIENsb3VkIFByYWN0aXRpb25lciBDTEYtQzAyIiwKICAic3RhcnRfdXJsIjogIi8iLAogICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLAogICJiYWNrZ3JvdW5kX2NvbG9yIjogIiM2NjdlZWEiLAogICJ0aGVtZV9jb2xvciI6ICIjNjY3ZWVhIiwKICAiY2F0ZWdvcmllcyI6IFsiZWR1Y2F0aW9uIiwgInByb2R1Y3Rpdml0eSJdLAogICJpY29ucyI6IFsKICAgIHsKICAgICAgInNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUIzYVdSMGFEMGlNVGt5SWlCb1pXbG5hSFE5SWpFNU1pSWdkbWxsZDBKdmVEMGlNQ0F3SURVNU1pQTBPVElpSUdacGJHdzlJbTV2Ym1VaUlIaHRiRzV6UFNKb2RIUndPaTh2ZDNkM0xuY3pMbTl5Wnk4eU1EQXdMM04yWnlJK0NqeHlaV04wSUhkcFpIUm9QU0kwT1RJaUlHaGxhV2RvZEQwaU5Ea3lJaUJ5ZUQwaU5EQWlJR1pwYkd3OUlpTTJOamRsWldFaUx6NEtQSFJsZUhRZ2VEMGlPREFpSUhrOUlqRTFNaUlnWm05dWRDMW1ZVzFwYkhrOUluTmhibk10YzJWeWFXWWlJR1p2Ym5RdGMybDZaVDBpTkRBaUlHWnZiblF0ZDJWcFoyaDBQU0ppYjJ4a0lpQm1hV3hzUFNKM2FHbDBaU0krUVZkVFBDOTBaWGgwUGdvOEwzTjJaejRLIiwKICAgICAgInNpemVzIjogIjE5MngxOTIiLAogICAgICAidHlwZSI6ICJpbWFnZS9zdmcreG1sIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUIzYVdSMGFEMGlOVEV5SWlCb1pXbG5hSFE5SWpVeE1pSWdkbWxsZDBKdmVEMGlNQ0F3SURRNU1pQTBPVElpSUdacGJHdzlJbTV2Ym1VaUlIaHRiRzV6UFNKb2RIUndPaTh2ZDNkM0xuY3pMbTl5Wnk4eU1EQXdMM04yWnlJK0NqeHlaV04wSUhkcFpIUm9QU0kwT1RJaUlHaGxhV2RvZEQwaU5Ea3lJaUJ5ZUQwaU5EQWlJR1pwYkd3OUlpTTJOamRsWldFaUx6NEtQSFJsZUhRZ2VEMGlNakF3SWlCNVBTSTBNREFpSUdadmJuUXRabUZ0YVd4NVBTSnpZVzV6TFhObGNtbG1JaUJtYjI1MExYTnBlbVU5SWpnMElpQm1hV3hzUFNKM2FHbDBaU0krUVZkVElFTnNiM1ZrUEM5MFpYaDBQZ284TDNOMlp6NEsiLAogICAgICAic2l6ZXMiOiAiNTEyeDUxMiIsCiAgICAgICJ0eXBlIjogImltYWdlL3N2Zyt4bWwiCiAgICB9CiAgXQp9"">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .container {
+                padding: 5px;
+            }
+            
+            .header h1 {
+                font-size: 2rem !important;
+            }
+            
+            .modules-grid {
+                grid-template-columns: 1fr !important;
+                gap: 15px !important;
+            }
+            
+            .module-card {
+                padding: 20px !important;
+                margin-bottom: 10px;
+            }
+            
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 10px !important;
+            }
+            
+            .comparison-table {
+                font-size: 0.85rem;
+                overflow-x: auto;
+                display: block;
+                white-space: nowrap;
+            }
+            
+            .comparison-table th,
+            .comparison-table td {
+                padding: 8px 6px;
+                white-space: normal;
+                min-width: 120px;
+            }
+            
+            .flashcard {
+                min-height: 150px !important;
+                padding: 20px !important;
+            }
+            
+            .quiz-options li {
+                padding: 15px !important;
+                font-size: 0.95rem;
+            }
+            
+            .service-box {
+                display: block !important;
+                margin: 10px auto !important;
+                text-align: center;
+            }
+            
+            .concept-card {
+                padding: 20px !important;
+            }
+            
+            .concept-title {
+                font-size: 1.3rem !important;
+            }
+        }
+
+        /* Touch-friendly improvements */
+        .module-card,
+        .flashcard,
+        .quiz-options li,
+        .back-btn,
+        .quiz-btn {
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+            touch-action: manipulation;
+        }
+
+        .quiz-options li,
+        .back-btn,
+        .quiz-btn {
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .module-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .module-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #FF6B6B, #4ECDC4, #45B7D1, #96CEB4);
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .module-card h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+
+        .module-card p {
+            color: #7f8c8d;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .module-card .weight {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+
+        .content-area {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .content-area.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .back-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .quiz-container {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .quiz-question {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .quiz-options {
+            list-style: none;
+            margin: 15px 0;
+        }
+
+        .quiz-options li {
+            background: white;
+            margin: 8px 0;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .quiz-options li:hover {
+            background: #e3f2fd;
+            border-color: #2196f3;
+        }
+
+        .quiz-options li.selected {
+            background: #e8f5e8;
+            border-color: #4caf50;
+        }
+
+        .quiz-options li.correct {
+            background: #c8e6c9;
+            border-color: #4caf50;
+        }
+
+        .quiz-options li.incorrect {
+            background: #ffcdd2;
+            border-color: #f44336;
+        }
+
+        .quiz-btn {
+            background: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+
+        .quiz-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .flashcard {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 15px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .flashcard:hover {
+            transform: scale(1.02);
+        }
+
+        .flashcard.flipped {
+            background: #e3f2fd;
+        }
+
+        .flashcard-content {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .flashcard-hint {
+            position: absolute;
+            bottom: 10px;
+            right: 15px;
+            font-size: 0.9rem;
+            color: #666;
+            opacity: 0.7;
+        }
+
+        .progress-bar {
+            background: #e0e0e0;
+            border-radius: 10px;
+            height: 20px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .progress-fill {
+            background: linear-gradient(45deg, #4caf50, #8bc34a);
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+
+        .concept-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 15px 0;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .concept-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .concept-description {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .concept-example {
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+            border-left: 4px solid #4ECDC4;
+        }
+
+        .architecture-diagram {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .service-box {
+            display: inline-block;
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            color: white;
+            padding: 15px 20px;
+            margin: 10px;
+            border-radius: 10px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .arrow {
+            font-size: 2rem;
+            color: #666;
+            margin: 0 10px;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-label {
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .comparison-table th {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            font-weight: bold;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #FFE082, #FF8A65);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            color: #333;
+            border-left: 5px solid #FF6B6B;
+        }
+
+        .tip-icon {
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 AWS Cloud Practitioner</h1>
+            <p>Guía de Estudio Interactiva - CLF-C02</p>
+        </div>
+
+        <div id="main-menu" class="modules-grid">
+            <div class="module-card" onclick="showContent('domain1')">
+                <h3>🌩️ Dominio 1: Conceptos de la Nube</h3>
+                <p>Fundamentos de computación en la nube, beneficios, modelos de servicio y despliegue.</p>
+                <span class="weight">Peso: 24%</span>
+            </div>
+
+            <div class="module-card" onclick="showContent('domain2')">
+                <h3>🔒 Dominio 2: Seguridad y Cumplimiento</h3>
+                <p>Modelo de responsabilidad compartida, IAM, cifrado y mejores prácticas de seguridad.</p>
+                <span class="weight">Peso: 30%</span>
+            </div>
+
+            <div class="module-card" onclick="showContent('domain3')">
+                <h3>⚙️ Dominio 3: Tecnología y Servicios</h3>
+                <p>Servicios principales de AWS: cómputo, almacenamiento, bases de datos y redes.</p>
+                <span class="weight">Peso: 34%</span>
+            </div>
+
+            <div class="module-card" onclick="showContent('domain4')">
+                <h3>💰 Dominio 4: Facturación y Soporte</h3>
+                <p>Modelos de precios, optimización de costos y planes de soporte de AWS.</p>
+                <span class="weight">Peso: 12%</span>
+            </div>
+
+            <div class="module-card" onclick="showContent('quiz')">
+                <h3>🎯 Quiz Interactivo</h3>
+                <p>Practica con preguntas de ejemplo similares al examen real.</p>
+                <span class="weight">Práctica</span>
+            </div>
+
+            <div class="module-card" onclick="showContent('flashcards')">
+                <h3>🎴 Tarjetas de Estudio</h3>
+                <p>Repasa conceptos clave con flashcards interactivas.</p>
+                <span class="weight">Repaso</span>
+            </div>
+        </div>
+
+        <!-- Dominio 1: Conceptos de la Nube -->
+        <div id="domain1" class="content-area">
+            <button class="back-btn" onclick="showMainMenu()">← Volver al Menú</button>
+            <h2>🌩️ Dominio 1: Conceptos de la Nube (24%)</h2>
+            
+            <div class="concept-card">
+                <div class="concept-title">¿Qué es la Computación en la Nube?</div>
+                <div class="concept-description">
+                    La nube es la disponibilización de recursos de TI a través de Internet bajo demanda. 
+                    En lugar de comprar servidores físicos, rentas capacidad cuando la necesitas.
+                </div>
+                <div class="concept-example">
+                    <strong>💡 Analogía:</strong> Como contratar electricidad - pagas solo lo que consumes, 
+                    no necesitas tener tu propia planta eléctrica.
+                </div>
+            </div>
+
+            <div class="architecture-diagram">
+                <h3>Modelos de Servicio en la Nube</h3>
+                <div style="margin: 20px 0;">
+                    <div class="service-box" style="background: linear-gradient(45deg, #FF6B6B, #FF8E53);">
+                        IaaS<br><small>Infraestructura como Servicio</small>
+                    </div>
+                    <span class="arrow">→</span>
+                    <div class="service-box" style="background: linear-gradient(45deg, #4ECDC4, #44A08D);">
+                        PaaS<br><small>Plataforma como Servicio</small>
+                    </div>
+                    <span class="arrow">→</span>
+                    <div class="service-box" style="background: linear-gradient(45deg, #45B7D1, #96CEB4);">
+                        SaaS<br><small>Software como Servicio</small>
+                    </div>
+                </div>
+            </div>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Modelo</th>
+                        <th>Descripción</th>
+                        <th>Ejemplo AWS</th>
+                        <th>Analogía</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>IaaS</strong></td>
+                        <td>Solo infraestructura, tú instalas todo</td>
+                        <td>Amazon EC2</td>
+                        <td>Departamento vacío para amueblar</td>
+                    </tr>
+                    <tr>
+                        <td><strong>PaaS</strong></td>
+                        <td>Plataforma lista, solo despliegas tu app</td>
+                        <td>AWS Elastic Beanstalk</td>
+                        <td>Departamento amueblado</td>
+                    </tr>
+                    <tr>
+                        <td><strong>SaaS</strong></td>
+                        <td>Aplicación completa lista para usar</td>
+                        <td>Amazon WorkSpaces</td>
+                        <td>Suite de hotel todo incluido</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <span class="tip-icon">💡</span>
+                <strong>Beneficios Clave de la Nube:</strong><br>
+                • <strong>Elasticidad:</strong> Escala automáticamente<br>
+                • <strong>Economía:</strong> Paga solo lo que usas<br>
+                • <strong>Agilidad:</strong> Recursos en minutos<br>
+                • <strong>Alcance Global:</strong> Deploy mundial<br>
+                • <strong>Confiabilidad:</strong> Infraestructura redundante
+            </div>
+        </div>
+
+        <!-- Dominio 2: Seguridad -->
+        <div id="domain2" class="content-area">
+            <button class="back-btn" onclick="showMainMenu()">← Volver al Menú</button>
+            <h2>🔒 Dominio 2: Seguridad y Cumplimiento (30%)</h2>
+            
+            <div class="concept-card">
+                <div class="concept-title">Modelo de Responsabilidad Compartida</div>
+                <div class="concept-description">
+                    AWS es responsable de la "seguridad DE la nube" (infraestructura física, hardware, red).
+                    El cliente es responsable de la "seguridad EN la nube" (datos, configuraciones, usuarios).
+                </div>
+                <div class="concept-example">
+                    <strong>🏢 Analogía:</strong> AWS mantiene seguro el edificio (puertas, alarmas), 
+                    tú aseguras tu apartamento (cerrar con llave, no dejar ventanas abiertas).
+                </div>
+            </div>
+
+            <div class="architecture-diagram">
+                <h3>Responsabilidades de Seguridad</h3>
+                <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+                    <div style="text-align: center; margin: 10px;">
+                        <div class="service-box" style="background: linear-gradient(45deg, #667eea, #764ba2);">
+                            AWS<br><small>Seguridad DE la nube</small>
+                        </div>
+                        <p style="margin-top: 10px; font-size: 0.9rem;">
+                            • Data centers físicos<br>
+                            • Hardware y red<br>
+                            • Hipervisores<br>
+                            • Servicios administrados
+                        </p>
+                    </div>
+                    <div style="text-align: center; margin: 10px;">
+                        <div class="service-box" style="background: linear-gradient(45deg, #FF6B6B, #4ECDC4);">
+                            Cliente<br><small>Seguridad EN la nube</small>
+                        </div>
+                        <p style="margin-top: 10px; font-size: 0.9rem;">
+                            • Datos y cifrado<br>
+                            • Configuración IAM<br>
+                            • Sistema operativo<br>
+                            • Security Groups
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="concept-card">
+                <div class="concept-title">AWS IAM (Identity and Access Management)</div>
+                <div class="concept-description">
+                    Servicio para gestionar usuarios, grupos, roles y permisos. Permite controlar quién puede acceder a qué recursos.
+                </div>
+                <div class="concept-example">
+                    <strong>⭐ Mejores Prácticas:</strong><br>
+                    • Activar MFA en cuenta root<br>
+                    • Crear usuarios IAM individuales<br>
+                    • Principio de menor privilegio<br>
+                    • Rotar credenciales regularmente
+                </div>
+            </div>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Servicio</th>
+                        <th>Función</th>
+                        <th>Caso de Uso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>CloudTrail</strong></td>
+                        <td>Registra acciones de API</td>
+                        <td>Auditoría: "¿Quién borró este recurso?"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CloudWatch</strong></td>
+                        <td>Monitoreo y métricas</td>
+                        <td>Alertas de rendimiento y logs</td>
+                    </tr>
+                    <tr>
+                        <td><strong>GuardDuty</strong></td>
+                        <td>Detección de amenazas</td>
+                        <td>Identifica actividad sospechosa</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Inspector</strong></td>
+                        <td>Analiza vulnerabilidades</td>
+                        <td>Revisa seguridad de EC2 y contenedores</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Dominio 3: Tecnología y Servicios -->
+        <div id="domain3" class="content-area">
+            <button class="back-btn" onclick="showMainMenu()">← Volver al Menú</button>
+            <h2>⚙️ Dominio 3: Tecnología y Servicios (34%)</h2>
+            
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-number">31</div>
+                    <div class="stat-label">Regiones AWS</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">99</div>
+                    <div class="stat-label">Zonas de Disponibilidad</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">400+</div>
+                    <div class="stat-label">Edge Locations</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">200+</div>
+                    <div class="stat-label">Servicios AWS</div>
+                </div>
+            </div>
+
+            <div class="concept-card">
+                <div class="concept-title">Infraestructura Global AWS</div>
+                <div class="concept-description">
+                    <strong>Regiones:</strong> Ubicaciones geográficas con múltiples AZ<br>
+                    <strong>Zonas de Disponibilidad (AZ):</strong> Data centers separados dentro de una región<br>
+                    <strong>Edge Locations:</strong> Puntos de presencia para CloudFront
+                </div>
+                <div class="concept-example">
+                    <strong>🎯 Para Alta Disponibilidad:</strong> Despliega en múltiples AZ dentro de una región
+                </div>
+            </div>
+
+            <h3>🖥️ Servicios de Cómputo</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Servicio</th>
+                        <th>Descripción</th>
+                        <th>Cuándo Usar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Amazon EC2</strong></td>
+                        <td>Servidores virtuales</td>
+                        <td>Control total del SO y aplicaciones</td>
+                    </tr>
+                    <tr>
+                        <td><strong>AWS Lambda</strong></td>
+                        <td>Código sin servidor</td>
+                        <td>Funciones event-driven, microservicios</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Elastic Beanstalk</strong></td>
+                        <td>Deploy fácil de apps web</td>
+                        <td>Subir código y AWS maneja infraestructura</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ECS/EKS</strong></td>
+                        <td>Orquestación de contenedores</td>
+                        <td>Aplicaciones containerizadas</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>💾 Servicios de Almacenamiento</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Servicio</th>
+                        <th>Tipo</th>
+                        <th>Caso de Uso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Amazon S3</strong></td>
+                        <td>Almacenamiento de objetos</td>
+                        <td>Archivos, backup, sitios estáticos</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Amazon EBS</strong></td>
+                        <td>Almacenamiento de bloques</td>
+                        <td>Discos para instancias EC2</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Amazon EFS</strong></td>
+                        <td>Sistema de archivos</td>
+                        <td>Almacenamiento compartido NFS</td>
+                    </tr>
+                    <tr>
+                        <td><strong>AWS Snowball</strong></td>
+                        <td>Transferencia física</td>
+                        <td>Migrar TB/PB de datos offline</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>🗄️ Servicios de Base de Datos</h3>
+            <div class="architecture-diagram">
+                <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+                    <div style="text-align: center; margin: 10px;">
+                        <div class="service-box" style="background: linear-gradient(45deg, #3498db, #2980b9);">
+                            Relacionales<br><small>Amazon RDS</small>
+                        </div>
+                        <p style="margin-top: 10px; font-size: 0.9rem;">
+                            MySQL, PostgreSQL<br>
+                            Oracle, SQL Server<br>
+                            Amazon Aurora
+                        </p>
+                    </div>
+                    <div style="text-align: center; margin: 10px;">
+                        <div class="service-box" style="background: linear-gradient(45deg, #e74c3c, #c0392b);">
+                            NoSQL<br><small>DynamoDB</small>
+                        </div>
+                        <p style="margin-top: 10px; font-size: 0.9rem;">
+                            Clave-Valor<br>
+                            Sin servidor<br>
+                            Ultra escalable
+                        </p>
+                    </div>
+                    <div style="text-align: center; margin: 10px;">
+                        <div class="service-box" style="background: linear-gradient(45deg, #9b59b6, #8e44ad);">
+                            Data Warehouse<br><small>Redshift</small>
+                        </div>
+                        <p style="margin-top: 10px; font-size: 0.9rem;">
+                            Análisis<br>
+                            Petabytes<br>
+                            Business Intelligence
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dominio 4: Facturación -->
+        <div id="domain4" class="content-area">
+            <button class="back-btn" onclick="showMainMenu()">← Volver al Menú</button>
+            <h2>💰 Dominio 4: Facturación y Soporte (12%)</h2>
+            
+            <div class="concept-card">
+                <div class="concept-title">Modelos de Precios AWS</div>
+                <div class="concept-description">
+                    AWS opera bajo el principio "paga por lo que usas" con diferentes opciones para optimizar costos.
+                </div>
+                <div class="concept-example">
+                    <strong>🎯 Factores de Costo:</strong> Cómputo + Almacenamiento + Transferencia de datos
+                </div>
+            </div>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Modelo de Compra</th>
+                        <th>Descripción</th>
+                        <th>Ahorro</th>
+                        <th>Cuándo Usar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>On-Demand</strong></td>
+                        <td>Pago por hora/segundo sin compromiso</td>
+                        <td>0% (precio base)</td>
+                        <td>Cargas impredecibles, desarrollo</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Reserved Instances</strong></td>
+                        <td>Compromiso 1-3 años</td>
+                        <td>Hasta 75%</td>
+                        <td>Uso constante conocido</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Spot Instances</strong></td>
+                        <td>Capacidad no utilizada</td>
+                        <td>Hasta 90%</td>
+                        <td>Cargas tolerantes a interrupciones</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Savings Plans</strong></td>
+                        <td>Compromiso de gasto $/hora</td>
+                        <td>Hasta 72%</td>
+                        <td>Flexibilidad entre servicios</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>🛠️ Herramientas de Gestión de Costos</h3>
+            <div class="architecture-diagram">
+                <div style="display: flex; justify-content: space-around; flex-wrap: wrap; text-align: center;">
+                    <div style="margin: 10px;">
+                        <div class="service-box" style="background: linear-gradient(45deg, #27ae60, #2ecc71);">
+                            Cost Explorer<br><small>Analizar gastos</small>
+                        </div>
+                    </div>
+                    <div style="margin: 10px;">
+                        <div class="service-box" style="background: linear-gradient(45deg, #f39c12, #e67e22);">
+                            AWS Budgets<br><small>Alertas de presupuesto</small>
+                        </div>
+                    </div>
+                    <div style="margin: 10px;">
+                        <div class="service-box" style="background: linear-gradient(45deg, #8e44ad, #9b59b6);">
+                            Pricing Calculator<br><small>Estimar costos</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>🎧 Planes de Soporte AWS</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Plan</th>
+                        <th>Costo</th>
+                        <th>Características Clave</th>
+                        <th>Para Quién</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Basic</strong></td>
+                        <td>Gratis</td>
+                        <td>Documentación, foros</td>
+                        <td>Todos los usuarios</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Developer</strong></td>
+                        <td>$29/mes o 3%</td>
+                        <td>Email soporte, horario oficina</td>
+                        <td>Desarrollo/pruebas</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Business</strong></td>
+                        <td>$100/mes o 10-3%</td>
+                        <td>Soporte 24/7, Trusted Advisor</td>
+                        <td>Cargas de producción</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Enterprise</strong></td>
+                        <td>$15,000/mes o 10%</td>
+                        <td>TAM dedicado, respuesta <15min</td>
+                        <td>Empresas críticas</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <span class="tip-icon">💡</span>
+                <strong>Consejos para Optimizar Costos:</strong><br>
+                • Usar Reserved Instances para cargas estables<br>
+                • Implementar Auto Scaling<br>
+                • Apagar recursos no utilizados<br>
+                • Elegir la región correcta<br>
+                • Monitorear con Cost Explorer y Budgets
+            </div>
+        </div>
+
+        <!-- Quiz Interactivo -->
+        <div id="quiz" class="content-area">
+            <button class="back-btn" onclick="showMainMenu()">← Volver al Menú</button>
+            <h2>🎯 Quiz Interactivo</h2>
+            
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-number" id="quiz-score">0</div>
+                    <div class="stat-label">Puntuación</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="quiz-current">1</div>
+                    <div class="stat-label">Pregunta Actual</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="quiz-total">10</div>
+                    <div class="stat-label">Total Preguntas</div>
+                </div>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="quiz-progress" style="width: 10%"></div>
+            </div>
+
+            <div class="quiz-container">
+                <div class="quiz-question" id="quiz-question">
+                    ¿Por qué suele resultar más económico ejecutar una aplicación con cargas variables en AWS?
+                </div>
+                <ul class="quiz-options" id="quiz-options">
+                    <li onclick="selectOption(this, false)">AWS factura los servicios de forma mensual fija</li>
+                    <li onclick="selectOption(this, false)">Los usuarios mantienen control administrativo completo</li>
+                    <li onclick="selectOption(this, true)">Se pueden lanzar instancias bajo demanda solo cuando son necesarias</li>
+                    <li onclick="selectOption(this, false)">Se pueden mantener instancias adicionales siempre encendidas</li>
+                </ul>
+                <div style="margin-top: 20px;">
+                    <button class="quiz-btn" id="quiz-submit" onclick="submitAnswer()" disabled>Responder</button>
+                    <button class="quiz-btn" id="quiz-next" onclick="nextQuestion()" style="display: none;">Siguiente</button>
+                    <button class="quiz-btn" onclick="restartQuiz()">Reiniciar Quiz</button>
+                </div>
+                <div id="quiz-explanation" style="margin-top: 15px; padding: 15px; background: #e3f2fd; border-radius: 8px; display: none;">
+                </div>
+            </div>
+        </div>
+
+        <!-- Flashcards -->
+        <div id="flashcards" class="content-area">
+            <button class="back-btn" onclick="showMainMenu()">← Volver al Menú</button>
+            <h2>🎴 Tarjetas de Estudio</h2>
+            
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-number" id="card-current">1</div>
+                    <div class="stat-label">Tarjeta Actual</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="card-total">15</div>
+                    <div class="stat-label">Total Tarjetas</div>
+                </div>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="card-progress" style="width: 6.67%"></div>
+            </div>
+
+            <div class="flashcard" id="flashcard" onclick="flipCard()">
+                <div class="flashcard-content" id="flashcard-content">
+                    ¿Qué es Amazon EC2?
+                </div>
+                <div class="flashcard-hint">🔄 Clic para voltear</div>
+            </div>
+
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="quiz-btn" onclick="previousCard()">← Anterior</button>
+                <button class="quiz-btn" onclick="nextCard()">Siguiente →</button>
+                <button class="quiz-btn" onclick="shuffleCards()">🔀 Mezclar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Variables globales
+        let currentQuizQuestion = 0;
+        let quizScore = 0;
+        let selectedOption = null;
+        let currentCard = 0;
+        let isCardFlipped = false;
+
+        // Datos del quiz
+        const quizData = [
+            {
+                question: "¿Por qué suele resultar más económico ejecutar una aplicación con cargas variables en AWS?",
+                options: [
+                    "AWS factura los servicios de forma mensual fija",
+                    "Los usuarios mantienen control administrativo completo", 
+                    "Se pueden lanzar instancias bajo demanda solo cuando son necesarias",
+                    "Se pueden mantener instancias adicionales siempre encendidas"
+                ],
+                correct: 2,
+                explanation: "En AWS puedes iniciar instancias solo cuando las necesitas y detenerlas cuando no, pagando únicamente por el tiempo utilizado. Esto permite ajustarse a cargas variables."
+            },
+            {
+                question: "¿Cuál es la responsabilidad del cliente en el modelo de responsabilidad compartida de AWS?",
+                options: [
+                    "Mantener la seguridad física de los centros de datos",
+                    "Parchar y actualizar el sistema operativo de instancias EC2",
+                    "Asegurar la infraestructura subyacente contra intrusiones",
+                    "Mantener la red global de AWS"
+                ],
+                correct: 1,
+                explanation: "El cliente es responsable de la seguridad 'EN' la nube, incluyendo configuración de SO, aplicaciones, datos y configuraciones de seguridad."
+            },
+            {
+                question: "¿Qué servicio es mejor para almacenar archivos estáticos de un sitio web de manera escalable?",
+                options: [
+                    "Amazon EBS",
+                    "Amazon EFS", 
+                    "Amazon S3",
+                    "Amazon EC2"
+                ],
+                correct: 2,
+                explanation: "Amazon S3 es ideal para almacenar archivos estáticos como imágenes, CSS, JavaScript, etc. Ofrece alta durabilidad y escalabilidad."
+            },
+            {
+                question: "¿Cuál es el beneficio principal de las Zonas de Disponibilidad (AZ)?",
+                options: [
+                    "Reducir latencia global",
+                    "Proporcionar alta disponibilidad dentro de una región",
+                    "Reducir costos de transferencia de datos",
+                    "Aumentar la velocidad de procesamiento"
+                ],
+                correct: 1,
+                explanation: "Las AZ son centros de datos físicamente separados que permiten alta disponibilidad. Si una AZ falla, las otras siguen funcionando."
+            },
+            {
+                question: "¿Qué herramienta usarías para estimar costos antes de implementar en AWS?",
+                options: [
+                    "AWS Cost Explorer",
+                    "AWS Budgets",
+                    "AWS Pricing Calculator", 
+                    "AWS Trusted Advisor"
+                ],
+                correct: 2,
+                explanation: "AWS Pricing Calculator permite estimar costos futuros configurando una arquitectura hipotética antes de implementarla."
+            },
+            {
+                question: "¿Cuál es la diferencia principal entre Amazon RDS y DynamoDB?",
+                options: [
+                    "RDS es más barato que DynamoDB",
+                    "RDS es relacional (SQL), DynamoDB es NoSQL",
+                    "RDS solo funciona con MySQL",
+                    "DynamoDB solo se usa para analytics"
+                ],
+                correct: 1,
+                explanation: "RDS es el servicio administrado para bases de datos relacionales (SQL), mientras que DynamoDB es una base NoSQL de clave-valor."
+            },
+            {
+                question: "¿Qué plan de soporte incluye un Technical Account Manager (TAM)?",
+                options: [
+                    "Basic Support",
+                    "Developer Support",
+                    "Business Support",
+                    "Enterprise Support"
+                ],
+                correct: 3,
+                explanation: "Solo el plan Enterprise Support incluye un TAM dedicado que conoce tu entorno y te ayuda proactivamente."
+            },
+            {
+                question: "¿Cuál es el servicio serverless de AWS para ejecutar código?",
+                options: [
+                    "Amazon EC2",
+                    "AWS Lambda",
+                    "Amazon ECS",
+                    "AWS Elastic Beanstalk"
+                ],
+                correct: 1,
+                explanation: "AWS Lambda permite ejecutar código sin aprovisionar servidores. Solo pagas por el tiempo de ejecución en milisegundos."
+            },
+            {
+                question: "¿Qué servicio registra todas las llamadas a APIs de AWS para auditoría?",
+                options: [
+                    "Amazon CloudWatch",
+                    "AWS CloudTrail",
+                    "AWS Config",
+                    "Amazon GuardDuty"
+                ],
+                correct: 1,
+                explanation: "AWS CloudTrail registra todas las acciones API realizadas en tu cuenta AWS para auditoría y seguridad."
+            },
+            {
+                question: "¿Cuándo usarías Spot Instances?",
+                options: [
+                    "Para bases de datos críticas 24/7",
+                    "Para servidores web de producción",
+                    "Para procesamiento batch tolerante a interrupciones",
+                    "Para almacenar datos importantes"
+                ],
+                correct: 2,
+                explanation: "Spot Instances ofrecen hasta 90% descuento pero pueden ser interrumpidas. Son ideales para cargas flexibles como procesamiento batch."
+            }
+        ];
+
+        // Datos de las flashcards
+        const flashcards = [
+            { front: "¿Qué es Amazon EC2?", back: "Elastic Compute Cloud - Servicio de servidores virtuales escalables en la nube" },
+            { front: "¿Qué significa IAM?", back: "Identity and Access Management - Gestión de usuarios, roles y permisos en AWS" },
+            { front: "¿Qué es Amazon S3?", back: "Simple Storage Service - Almacenamiento de objetos escalable y duradero" },
+            { front: "¿Qué es una VPC?", back: "Virtual Private Cloud - Red privada virtual aislada dentro de AWS" },
+            { front: "¿Qué es AWS Lambda?", back: "Servicio de computación serverless que ejecuta código en respuesta a eventos" },
+            { front: "¿Qué es Amazon RDS?", back: "Relational Database Service - Bases de datos relacionales administradas" },
+            { front: "¿Qué es DynamoDB?", back: "Base de datos NoSQL totalmente administrada y escalable" },
+            { front: "¿Qué es CloudFront?", back: "Red de entrega de contenido (CDN) global de AWS" },
+            { front: "¿Qué es Auto Scaling?", back: "Capacidad de añadir/quitar recursos automáticamente según demanda" },
+            { front: "¿Qué es una Zona de Disponibilidad?", back: "Centro de datos físicamente separado dentro de una región AWS" },
+            { front: "¿Qué es Elastic Load Balancing?", back: "Distribuye tráfico entrante entre múltiples instancias" },
+            { front: "¿Qué es Amazon CloudWatch?", back: "Servicio de monitoreo y observabilidad para recursos AWS" },
+            { front: "¿Qué es AWS CloudTrail?", back: "Servicio que registra actividades de API para auditoría" },
+            { front: "¿Qué es Amazon Route 53?", back: "Servicio de DNS altamente disponible y escalable" },
+            { front: "¿Qué es AWS Well-Architected?", back: "Marco de mejores prácticas con 6 pilares: Operacional, Seguridad, Confiabilidad, Eficiencia, Optimización de Costos, Sostenibilidad" }
+        ];
+
+        // Funciones de navegación
+        function showContent(contentId) {
+            document.getElementById('main-menu').style.display = 'none';
+            document.querySelectorAll('.content-area').forEach(area => {
+                area.classList.remove('active');
+            });
+            document.getElementById(contentId).classList.add('active');
+        }
+
+        function showMainMenu() {
+            document.querySelectorAll('.content-area').forEach(area => {
+                area.classList.remove('active');
+            });
+            document.getElementById('main-menu').style.display = 'grid';
+        }
+
+        // Funciones del quiz
+        function selectOption(option, isCorrect) {
+            // Limpiar selecciones previas
+            document.querySelectorAll('.quiz-options li').forEach(li => {
+                li.classList.remove('selected');
+            });
+            
+            // Marcar opción seleccionada
+            option.classList.add('selected');
+            selectedOption = { element: option, correct: isCorrect };
+            
+            // Habilitar botón de respuesta
+            document.getElementById('quiz-submit').disabled = false;
+        }
+
+        function submitAnswer() {
+            if (!selectedOption) return;
+            
+            // Mostrar respuestas correctas e incorrectas
+            const options = document.querySelectorAll('.quiz-options li');
+            options.forEach((option, index) => {
+                if (index === quizData[currentQuizQuestion].correct) {
+                    option.classList.add('correct');
+                } else if (option.classList.contains('selected') && !selectedOption.correct) {
+                    option.classList.add('incorrect');
+                }
+                option.style.pointerEvents = 'none';
+            });
+            
+            // Actualizar puntuación
+            if (selectedOption.correct) {
+                quizScore++;
+                document.getElementById('quiz-score').textContent = quizScore;
+            }
+            
+            // Mostrar explicación
+            const explanation = document.getElementById('quiz-explanation');
+            explanation.innerHTML = `<strong>Explicación:</strong> ${quizData[currentQuizQuestion].explanation}`;
+            explanation.style.display = 'block';
+            
+            // Cambiar botones
+            document.getElementById('quiz-submit').style.display = 'none';
+            document.getElementById('quiz-next').style.display = 'inline-block';
+        }
+
+        function nextQuestion() {
+            currentQuizQuestion++;
+            
+            if (currentQuizQuestion >= quizData.length) {
+                showQuizResults();
+                return;
+            }
+            
+            loadQuestion();
+            updateQuizProgress();
+        }
+
+        function loadQuestion() {
+            const question = quizData[currentQuizQuestion];
+            document.getElementById('quiz-question').textContent = question.question;
+            
+            const optionsContainer = document.getElementById('quiz-options');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const li = document.createElement('li');
+                li.textContent = option;
+                li.onclick = () => selectOption(li, index === question.correct);
+                optionsContainer.appendChild(li);
+            });
+            
+            // Reset controles
+            selectedOption = null;
+            document.getElementById('quiz-submit').disabled = true;
+            document.getElementById('quiz-submit').style.display = 'inline-block';
+            document.getElementById('quiz-next').style.display = 'none';
+            document.getElementById('quiz-explanation').style.display = 'none';
+            
+            // Actualizar contador
+            document.getElementById('quiz-current').textContent = currentQuizQuestion + 1;
+        }
+
+        function updateQuizProgress() {
+            const progress = ((currentQuizQuestion + 1) / quizData.length) * 100;
+            document.getElementById('quiz-progress').style.width = progress + '%';
+        }
+
+        function showQuizResults() {
+            const percentage = Math.round((quizScore / quizData.length) * 100);
+            let message = '';
+            
+            if (percentage >= 90) {
+                message = '🎉 ¡Excelente! Estás muy bien preparado.';
+            } else if (percentage >= 70) {
+                message = '👍 ¡Bien! Probablemente apruebes el examen.';
+            } else if (percentage >= 50) {
+                message = '📚 Necesitas estudiar más algunos temas.';
+            } else {
+                message = '💪 ¡Sigue estudiando! Puedes lograrlo.';
+            }
+            
+            document.getElementById('quiz-question').innerHTML = `
+                <h3>¡Quiz Completado!</h3>
+                <p>Puntuación: ${quizScore}/${quizData.length} (${percentage}%)</p>
+                <p>${message}</p>
+            `;
+            
+            document.getElementById('quiz-options').innerHTML = '';
+            document.getElementById('quiz-submit').style.display = 'none';
+            document.getElementById('quiz-next').style.display = 'none';
+            document.getElementById('quiz-explanation').style.display = 'none';
+        }
+
+        function restartQuiz() {
+            currentQuizQuestion = 0;
+            quizScore = 0;
+            document.getElementById('quiz-score').textContent = '0';
+            document.getElementById('quiz-current').textContent = '1';
+            loadQuestion();
+            updateQuizProgress();
+        }
+
+        // Funciones de flashcards
+        function flipCard() {
+            const card = document.getElementById('flashcard');
+            const content = document.getElementById('flashcard-content');
+            
+            isCardFlipped = !isCardFlipped;
+            
+            if (isCardFlipped) {
+                content.textContent = flashcards[currentCard].back;
+                card.classList.add('flipped');
+            } else {
+                content.textContent = flashcards[currentCard].front;
+                card.classList.remove('flipped');
+            }
+        }
+
+        function nextCard() {
+            currentCard = (currentCard + 1) % flashcards.length;
+            loadCard();
+            updateCardProgress();
+        }
+
+        function previousCard() {
+            currentCard = currentCard === 0 ? flashcards.length - 1 : currentCard - 1;
+            loadCard();
+            updateCardProgress();
+        }
+
+        function loadCard() {
+            const content = document.getElementById('flashcard-content');
+            const card = document.getElementById('flashcard');
+            
+            content.textContent = flashcards[currentCard].front;
+            card.classList.remove('flipped');
+            isCardFlipped = false;
+            
+            document.getElementById('card-current').textContent = currentCard + 1;
+        }
+
+        function updateCardProgress() {
+            const progress = ((currentCard + 1) / flashcards.length) * 100;
+            document.getElementById('card-progress').style.width = progress + '%';
+        }
+
+        function shuffleCards() {
+            for (let i = flashcards.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]];
+            }
+            currentCard = 0;
+            loadCard();
+            updateCardProgress();
+        }
+
+        // Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('data:application/javascript;base64,Y29uc3QgQ0FDSEVfTkFNRSA9ICdhd3Mtc3R1ZHktYXBwLXYxJzsKY29uc3QgdXJsc1RvQ2FjaGUgPSBbCiAgJy8nLAogICcuLycKXTsKCnNlbGYuYWRkRXZlbnRMaXN0ZW5lcignaW5zdGFsbCcsIGV2ZW50ID0+IHsKICBldmVudC53YWl0VW50aWwoCiAgICBjYWNoZXMub3BlbihDQUNIRV9OQU1FKQogICAgICAudGhlbihjYWNoZSA9PiBjYWNoZS5hZGRBbGwodXJsc1RvQ2FjaGUpKQogICk7Cn0pOwoKc2VsZi5hZGRFdmVudExpc3RlbmVyKCdmZXRjaCcsIGV2ZW50ID0+IHsKICBldmVudC5yZXNwb25kV2l0aCgKICAgIGNhY2hlcy5tYXRjaChldmVudC5yZXF1ZXN0KQogICAgICAudGhlbihyZXNwb25zZSA9PiB7CiAgICAgICAgcmV0dXJuIHJlc3BvbnNlIHx8IGZldGNoKGV2ZW50LnJlcXVlc3QpOwogICAgICB9KQogICk7Cn0pOw==')
+                .then(() => console.log('Service Worker registered'))
+                .catch(err => console.log('Service Worker registration failed'));
+            });
+        }
+
+        // PWA Install Prompt
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            showInstallButton();
+        });
+
+        function showInstallButton() {
+            const installButton = document.createElement('button');
+            installButton.className = 'back-btn';
+            installButton.style.position = 'fixed';
+            installButton.style.bottom = '20px';
+            installButton.style.right = '20px';
+            installButton.style.zIndex = '1000';
+            installButton.innerHTML = '📱 Instalar App';
+            installButton.onclick = installApp;
+            document.body.appendChild(installButton);
+        }
+
+        function installApp() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((result) => {
+                    if (result.outcome === 'accepted') {
+                        console.log('PWA installed');
+                    }
+                    deferredPrompt = null;
+                    document.querySelector('button[onclick="installApp()"]').remove();
+                });
+            }
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            loadQuestion();
+            updateQuizProgress();
+            loadCard();
+            updateCardProgress();
+        });
+    </script>
+</body>
+</html>
